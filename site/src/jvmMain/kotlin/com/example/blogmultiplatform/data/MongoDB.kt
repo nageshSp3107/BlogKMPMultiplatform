@@ -1,6 +1,6 @@
-package com.example.blogmultiplatform.api.data
+package com.example.blogmultiplatform.data
 
-import com.example.blogmultiplatform.api.models.User
+import com.example.blogmultiplatform.models.User
 import com.mongodb.reactivestreams.client.MongoClients
 import com.varabyte.kobweb.api.data.add
 import com.varabyte.kobweb.api.init.InitApiContext

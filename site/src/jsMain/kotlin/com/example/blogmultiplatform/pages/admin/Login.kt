@@ -2,6 +2,7 @@ package com.example.blogmultiplatform.pages.admin
 
 import androidx.compose.runtime.Composable
 import com.example.blogmultiplatform.models.Theme
+import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -13,6 +14,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.border
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.color
+import com.varabyte.kobweb.compose.ui.modifiers.cursor
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
@@ -98,6 +100,7 @@ fun LoginScreen(){
                         style = LineStyle.None,
                         color = Colors.Transparent
                     )
+                    .cursor(Cursor.Pointer)
                     .outline (
                         width = 0.px,
                         style = LineStyle.None,
