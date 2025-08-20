@@ -3,7 +3,7 @@ jetbrains-compose = "1.8.0"
 kobweb = "0.23.0"
 kotlin = "2.2.0"
 kmongo = "5.2.0"
-kotlinx-serialization = "1.9.0"
+kotlinx-serialization = "1.4.1"
 
 
 [libraries]
@@ -19,7 +19,7 @@ kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-
 silk-foundation = { module = "com.varabyte.kobweb:silk-foundation", version.ref = "kobweb" }
 silk-icons-fa = { module = "com.varabyte.kobwebx:silk-icons-fa", version.ref = "kobweb" }
 silk-icons-mdi = { module = "com.varabyte.kobwebx:silk-icons-mdi", version.ref = "kobweb" }
-kmongo-coroutine = { module = "org.litote.kmongo:kmongo-coroutine", version.ref = "kmongo" }
+kmongo-coroutine = { module = "org.litote.kmongo:kmongo-coroutine-serialization", version.ref = "kmongo" }
 
 [plugins]
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

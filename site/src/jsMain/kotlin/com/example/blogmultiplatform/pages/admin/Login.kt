@@ -57,7 +57,7 @@ import kotlin.time.Duration.Companion.seconds
 @Page()
 @Composable
 fun LoginScreen(){
-    var errorText by remember { mutableStateOf("") }
+    var errorText by remember { mutableStateOf(" ") }
     val context = rememberPageContext()
     val scope = rememberCoroutineScope()
     Box(

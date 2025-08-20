@@ -10,6 +10,7 @@ import com.varabyte.kobweb.api.http.setBodyText
 import kotlinx.serialization.json.Json
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
+import kotlinx.serialization.encodeToString
 
 @Api("usercheck")
 suspend fun userCheck(context: ApiContext){

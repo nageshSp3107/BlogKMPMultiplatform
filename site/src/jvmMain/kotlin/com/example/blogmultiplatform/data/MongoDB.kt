@@ -20,7 +20,7 @@ fun initMongoDB(context: InitApiContext){
 }
 
 class MongoDB(private val context: InitApiContext) : MongoRepository {
-    private val client = MongoClients.create("")
+    private val client = MongoClients.create("mongodb://127.0.0.1:27017")
     private val database = client.getDatabase("my_blog")
     private val userCollection = database.getCollection<User>()
 
