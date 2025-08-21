@@ -10,6 +10,7 @@ import com.mongodb.reactivestreams.client.MongoClients
 import com.varabyte.kobweb.api.data.add
 import com.varabyte.kobweb.api.init.InitApi
 import com.varabyte.kobweb.api.init.InitApiContext
+import kotlinx.coroutines.reactive.awaitFirst
 import kotlinx.coroutines.reactive.awaitFirstOrNull
 import kotlinx.serialization.json.Json
 import org.litote.kmongo.and
@@ -50,5 +51,18 @@ class MongoDB(private val context: InitApiContext) : MongoRepository {
              context.logger.error(e.message.toString())
              null
          }
+    }
+
+    override suspend fun checkUserId(id: String): Boolean {
+        return try {
+            val filter = Filters.and(
+                Filters.eq(id, id),
+            )
+            val doc = userCollection.countDocuments(filter).awaitFirst()
+            doc > 0
+        }catch (e: Exception){
+            context.logger.error(e.message.toString())
+            false
+        }
     }
 }

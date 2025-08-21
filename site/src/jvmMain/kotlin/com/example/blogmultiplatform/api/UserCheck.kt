@@ -46,6 +46,28 @@ suspend fun userCheck(context: ApiContext){
     }
 }
 
+@Api("checkuserId")
+suspend fun checkUserId(context: ApiContext){
+    try {
+        val idRequest = context.req.body?.decodeToString()?.let { Json.decodeFromString<String>(it) }
+        context.logger.debug("id request: ${idRequest.toString()}")
+        val result = idRequest?.let { context.data.getValue<MongoDB>().checkUserId(it) }
+        if (result != null){
+            context.res.setBodyText(Json.encodeToString(result))
+        }else{
+            context.res.setBodyText(Json.encodeToString(false))
+        }
+
+    }catch (e: Exception){
+        context.res.setBodyText(
+            Json.encodeToString(
+                false
+            )
+        )
+    }
+
+}
+
 private fun hasPassword(password:String):String{
     val messageDigest = MessageDigest.getInstance("SHA-256")
     val passwordByteArray = messageDigest.digest(password.toByteArray(StandardCharsets.UTF_8))
