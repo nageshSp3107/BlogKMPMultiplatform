@@ -10,12 +10,12 @@ import com.varabyte.kobweb.api.http.setBodyText
 import kotlinx.serialization.json.Json
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
-import kotlinx.serialization.encodeToString
 
 @Api("usercheck")
 suspend fun userCheck(context: ApiContext){
     try{
         val userRequest = context.req.body?.decodeToString()?.let { Json.decodeFromString<User>(it) }
+        context.logger.debug("user request: ${userRequest.toString()}")
         val user = userRequest?.let {
             context.data.getValue<MongoDB>().checkUserExistence(
                 User(userName = it.userName, password = hasPassword(it.password))

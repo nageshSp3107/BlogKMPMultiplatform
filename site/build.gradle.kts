@@ -39,6 +39,9 @@ kotlin {
         jvmMain.dependencies {
             compileOnly(libs.kobweb.api) // Provided by Kobweb backend at runtime
             implementation(libs.kmongo.coroutine)
+            implementation("org.litote.kmongo:kmongo-coroutine-serialization:5.5.1")
+            implementation("org.litote.kmongo:kmongo-serialization:5.5.1")
+            // build.gradle.kts
             implementation(libs.kotlinx.serialization)
         }
     }

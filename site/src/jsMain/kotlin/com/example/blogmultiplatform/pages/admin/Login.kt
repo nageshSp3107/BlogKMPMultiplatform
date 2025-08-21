@@ -140,7 +140,7 @@ fun LoginScreen(){
                                 )
                                 if (user!=null){
                                     rememberLoggedIn(true, user)
-                                    context.router.navigateTo("admin/home")
+                                    context.router.navigateTo("/admin")
                                 }else{
                                     errorText = "The user doesn't exist,"
                                     delay(3.seconds)

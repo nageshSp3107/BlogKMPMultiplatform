@@ -2,13 +2,14 @@ package com.example.blogmultiplatform.models
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.litote.kmongo.id.ObjectIdGenerator
 
 @Serializable
 actual data class User(
     @SerialName("_id")
-    actual val id:String = ObjectIdGenerator.newObjectId<String>().id.toHexString(),
+    actual val id: String = org.bson.types.ObjectId().toHexString(),
+    @SerialName("userName")
     actual val userName:String = "",
+    @SerialName("password")
     actual val password:String = ""
 )
 
@@ -16,6 +17,7 @@ actual data class User(
 @Serializable
 actual data class UserWithoutPassword(
     @SerialName("_id")
-    actual val id:String = ObjectIdGenerator.newObjectId<String>().id.toHexString(),
+    actual val id: String = org.bson.types.ObjectId().toHexString(),
+    @SerialName("userName")
     actual val userName:String = ""
 )
