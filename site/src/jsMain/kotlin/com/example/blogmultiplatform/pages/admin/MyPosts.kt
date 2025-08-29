@@ -12,7 +12,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
 import com.varabyte.kobweb.core.Page
 import org.jetbrains.compose.web.css.px
 
-@Page()
+@Page("myposts")
 @Composable
 fun MyPostsPage(){
     isUserLoggedIn {

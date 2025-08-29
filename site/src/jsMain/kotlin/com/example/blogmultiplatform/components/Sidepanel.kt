@@ -41,7 +41,7 @@ fun SidePanel(){
         )
 
         NavigationItem(
-            modifier = Modifier.margin (bottom = 24.px),
+            modifier = Modifier.margin (bottom = 10.px),
             selectedItem = context.route.path == Screen.AdminHome.route,
             title = "Home",
             onClick = {
@@ -50,7 +50,7 @@ fun SidePanel(){
         )
 
         NavigationItem(
-            modifier = Modifier.margin (bottom = 24.px),
+            modifier = Modifier.margin (bottom = 10.px),
             selectedItem = context.route.path == Screen.AdminCreate.route,
             title = "Create Post",
             onClick = {
@@ -59,7 +59,7 @@ fun SidePanel(){
         )
 
         NavigationItem(
-            modifier = Modifier.margin (bottom = 24.px),
+            modifier = Modifier.margin (bottom = 10.px),
             selectedItem = context.route.path == Screen.AdminMyPosts.route,
             title = "My Posts",
             onClick = {
@@ -68,7 +68,7 @@ fun SidePanel(){
         )
 
         NavigationItem(
-            modifier = Modifier.margin (bottom = 24.px),
+            modifier = Modifier.margin (bottom = 10.px),
             selectedItem = false,
             title = "Logout",
             onClick = {
