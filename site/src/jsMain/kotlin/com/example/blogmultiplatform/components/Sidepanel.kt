@@ -2,6 +2,7 @@ package com.example.blogmultiplatform.components
 
 import androidx.compose.runtime.Composable
 import com.example.blogmultiplatform.models.Theme
+import com.example.blogmultiplatform.styles.NavigationTextStyle
 import com.example.blogmultiplatform.util.Constants.FONT_FAMILY
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -9,7 +10,9 @@ import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.thenIf
 import com.varabyte.kobweb.silk.components.text.SpanText
+import com.varabyte.kobweb.silk.style.toModifier
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.vh
@@ -74,17 +77,22 @@ fun NavigationItem(
     onClick:() -> Unit
 ){
     Row(
-        modifier = modifier
+        modifier = NavigationTextStyle.toModifier()
+            .id("navItem")
+            .then(modifier)
             .cursor(Cursor.Pointer)
             .onClick { onClick.invoke() },
         verticalAlignment = Alignment.CenterVertically
     ) {
         SpanText(
             modifier = Modifier
+                .id("navigationText")
+                .then(modifier)
                 .fontFamily(FONT_FAMILY)
-                .fontSize(16.px)
-                .color(if(selectedItem) Theme.Primary.rgb else Theme.White.rgb),
+                .fontSize(16.px),
             text = title
         )
+
+
     }
 }
