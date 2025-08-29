@@ -9,6 +9,7 @@ import androidx.compose.runtime.setValue
 import com.example.blogmultiplatform.models.Theme
 import com.example.blogmultiplatform.models.User
 import com.example.blogmultiplatform.models.UserWithoutPassword
+import com.example.blogmultiplatform.navigation.Screen
 import com.example.blogmultiplatform.util.Id
 import com.example.blogmultiplatform.util.checkUserExistence
 import com.varabyte.kobweb.compose.css.Cursor
@@ -140,7 +141,7 @@ fun LoginScreen(){
                                 )
                                 if (user!=null){
                                     rememberLoggedIn(true, user)
-                                    context.router.navigateTo("/admin")
+                                    context.router.navigateTo(Screen.AdminHome.route)
                                 }else{
                                     errorText = "The user doesn't exist,"
                                     delay(3.seconds)
