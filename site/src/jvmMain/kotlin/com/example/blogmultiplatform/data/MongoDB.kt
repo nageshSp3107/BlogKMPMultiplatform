@@ -1,6 +1,7 @@
 package com.example.blogmultiplatform.data
 
 import com.example.blogmultiplatform.models.User
+import com.example.blogmultiplatform.util.ID
 import com.example.blogmultiplatform.util.password
 import com.example.blogmultiplatform.util.userName
 import com.mongodb.ConnectionString
@@ -56,9 +57,10 @@ class MongoDB(private val context: InitApiContext) : MongoRepository {
     override suspend fun checkUserId(id: String): Boolean {
         return try {
             val filter = Filters.and(
-                Filters.eq(id, id),
+                Filters.eq(ID, id),
             )
             val doc = userCollection.countDocuments(filter).awaitFirst()
+            context.logger.debug("checkUserId: $id and found: ${doc > 0}")
             doc > 0
         }catch (e: Exception){
             context.logger.error(e.message.toString())

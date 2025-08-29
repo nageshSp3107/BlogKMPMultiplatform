@@ -16,9 +16,10 @@ fun isUserLoggedIn(content:@Composable () -> Unit){
     val remembered = remember { localStorage["remember"].toBoolean() }
     val userId = remember { localStorage["userId"].toString() }
     var userIdExist by remember { mutableStateOf(false) }
+    println("userIdExist : $userIdExist and userId: $userId")
 
     LaunchedEffect(Unit){
-        userIdExist = if (!userId.isNullOrEmpty()) checkUserId(userId) else false
+        userIdExist = if (userId.isNotEmpty()) checkUserId(userId) else false
         if (!remembered || !userIdExist){
             context.router.navigateTo("/admin/login")
         }
