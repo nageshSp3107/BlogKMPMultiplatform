@@ -2,6 +2,7 @@ package com.example.blogmultiplatform.models
 
 import org.jetbrains.compose.web.css.CSSColorValue
 import org.jetbrains.compose.web.css.rgb
+import org.jetbrains.compose.web.css.rgba
 
 enum class Theme(
     val hex: String,
@@ -15,5 +16,20 @@ enum class Theme(
     LightGray(
         hex = "#FAFAFA",
         rgb = rgb(r = 250, g = 250, b = 250)
+    ),
+
+    Secondary(
+    hex = "#001019",
+    rgb = rgb(r = 0, g = 16, b = 25)
+    ),
+
+    HalfWhite(
+        hex = "#FFFFFF",
+        rgb = rgba(r = 255, g = 255, b = 255,a = 0.5)
+    ),
+
+    White(
+        hex = "#FFFFFF",
+        rgb = rgb(r = 255, g = 255, b = 255)
     )
 }
